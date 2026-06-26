@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Booking — LeBaron Aesthetics & Dental Lounge</title>
+  <meta name="description" content="Book your appointment at LeBaron Aesthetics & Dental Lounge. Contact our Srinagar or Delhi branch via phone, WhatsApp, or email." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #7B1C2E;
+      --burgundy-dark: #5a1220;
+      --gold: #C9A84C;
+      --gold-light: #e0c070;
+      --ivory: #F9F5F0;
+      --dark: #1A1A1A;
+      --white: #FFFFFF;
+      --text-muted: #6b6b6b;
+      --border: rgba(201,168,76,0.25);
+      --input-bg: #fafafa;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-label {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.35s, box-shadow 0.35s;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--dark);
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      border: 1.5px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      transition: transform 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--burgundy-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.open { opacity: 1; }
+    .mobile-overlay a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ivory);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .mobile-overlay a:hover { color: var(--gold); }
+
+    /* ─── PAGE HERO ──────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--burgundy-dark);
+      padding: 8rem 2rem 4rem;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(123,28,46,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.1) 0%, transparent 50%),
+        linear-gradient(160deg, #3a0b14 0%, #1a0508 45%, #0d0204 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .page-hero p {
+      color: rgba(249,245,240,0.72);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--burgundy);
+      margin-bottom: 0.8rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    /* ─── CONTACT GRID ───────────────────────────── */
+    #contact-main {
+      padding: 5rem 2rem;
+      background: var(--white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ─── FORM ───────────────────────────────────── */
+    .contact-form-wrap {
+      background: var(--ivory);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+    .contact-form-wrap h3 {
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      margin-bottom: 0.3rem;
+    }
+    .contact-form-wrap > p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.25s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+
+    /* ─── CONTACT INFO ───────────────────────────── */
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      margin-bottom: 1.5rem;
+    }
+    .branch-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.25s;
+    }
+    .branch-card:hover { border-color: var(--gold); }
+    .branch-badge {
+      display: inline-block;
+      background: var(--burgundy);
+      color: var(--gold);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    .branch-card h4 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+    .branch-detail {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .branch-detail svg { flex-shrink: 0; margin-top: 2px; }
+    .branch-action {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .branch-action a {
+      flex: 1;
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.25s, color 0.25s;
+    }
+    .branch-action a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .contact-quick {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .contact-quick h4 {
+      font-size: 1rem;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+    }
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      background: var(--ivory);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .quick-links a:hover {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .quick-links a svg { flex-shrink: 0; }
+
+    /* ─── MAPS ───────────────────────────────────── */
+    #maps {
+      padding: 0 2rem 5rem;
+      background: var(--white);
+    }
+    .maps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .map-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .map-card iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .map-label {
+      padding: 1rem 1.5rem;
+      background: var(--ivory);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--burgundy);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(249,245,240,0.7);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(249,245,240,0.5);
+      margin-top: 0.3rem;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .social-icon:hover { border-color: var(--gold); }
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a {
+      color: rgba(249,245,240,0.6);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-address {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: rgba(249,245,240,0.55);
+    }
+    .footer-address strong {
+      color: rgba(249,245,240,0.85);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: rgba(249,245,240,0.35);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── WHATSAPP FAB ───────────────────────────── */
+    #whatsapp-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 999;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    #whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .maps-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-overlay { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="LeBaron Aesthetics & Dental Lounge home">
+      <span class="nav-logo-main">LeBaron</span>
+      <span class="nav-logo-sub">Aesthetics &amp; Dental Lounge</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta" aria-current="page">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" id="mobile-overlay" role="dialog" aria-label="Navigation menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="team.html">Our Team</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Book Appointment</a>
+  </div>
+
+  <!-- ═══════════ PAGE HERO ═══════════ -->
+  <section class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="eyebrow" style="margin-bottom:1rem;color:var(--gold-light);">Get In Touch</div>
+      <h1 id="page-heading">Book Your <em>Appointment</em></h1>
+      <p>Reach out via phone, WhatsApp, or the form below. Our team will respond within 24 hours to confirm your visit.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT MAIN ═══════════ -->
+  <section id="contact-main" aria-label="Contact information and booking form">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <h3>Request an Appointment</h3>
+          <p>Fill in your details and we will contact you to confirm your preferred time.</p>
+          <form action="mailto:info@lebaronaesthetic.com" method="post" enctype="text/plain">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="first_name" placeholder="Your first name" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="last_name" placeholder="Your last name" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="branch">Preferred Branch</label>
+              <select id="branch" name="branch" required>
+                <option value="">Select a branch</option>
+                <option value="srinagar">Srinagar — Wani Complex, Munawarabad</option>
+                <option value="delhi">Delhi — Safdarjung Enclave, South Delhi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="service">Service of Interest</label>
+              <select id="service" name="service">
+                <option value="">Select a service (optional)</option>
+                <option value="dental">Dental Care</option>
+                <option value="skin">Skin & Aesthetics</option>
+                <option value="injectables">Botox & Fillers</option>
+                <option value="hair">Hair Restoration</option>
+                <option value="body">Body Contouring</option>
+                <option value="pmu">Permanent Makeup</option>
+                <option value="consultation">General Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your concerns or preferred dates..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Appointment Request</button>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="contact-info">
+          <h3>Our Branches</h3>
+
+          <div class="branch-card">
+            <span class="branch-badge">Srinagar</span>
+            <h4>Srinagar Branch</h4>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z" stroke="#C9A84C" stroke-width="1" fill="none"/><circle cx="8" cy="6" r="1.5" stroke="#C9A84C" stroke-width="1"/></svg>
+              Wani Complex, Munawarabad, Srinagar – 190001<br>(Opposite JK Bank)
+            </div>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z" stroke="#C9A84C" stroke-width="1" fill="none"/></svg>
+              +91 97170 52687
+            </div>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#C9A84C" stroke-width="1"/><path d="M8 5v3.5l2 2" stroke="#C9A84C" stroke-width="1"/></svg>
+              Mon–Sat: 10:00 AM – 7:00 PM &nbsp;·&nbsp; Sunday: Closed
+            </div>
+            <div class="branch-action">
+              <a href="tel:+919717052687">Call Now</a>
+              <a href="https://wa.me/919717052687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Srinagar." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <span class="branch-badge">Delhi</span>
+            <h4>Delhi Branch</h4>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z" stroke="#C9A84C" stroke-width="1" fill="none"/><circle cx="8" cy="6" r="1.5" stroke="#C9A84C" stroke-width="1"/></svg>
+              B5/31, Safdarjung Enclave (Humayunpur)<br>South Delhi – 110029
+            </div>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z" stroke="#C9A84C" stroke-width="1" fill="none"/></svg>
+              +91 97170 82687 &nbsp;·&nbsp; 011-46109223
+            </div>
+            <div class="branch-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12v8.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V4z" stroke="#C9A84C" stroke-width="1"/><path d="M2 4l6 5 6-5" stroke="#C9A84C" stroke-width="1"/></svg>
+              info@lebaronaesthetic.com
+            </div>
+            <div class="branch-action">
+              <a href="tel:+919717082687">Call Now</a>
+              <a href="https://wa.me/919717082687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Delhi." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact-quick">
+            <h4>Quick Connect</h4>
+            <div class="quick-links">
+              <a href="https://wa.me/919717052687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Aesthetics%20%26%20Dental%20Lounge." target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Chat on WhatsApp
+              </a>
+              <a href="tel:+919717052687">
+                <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.2" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z"/></svg>
+                Call +91 97170 52687
+              </a>
+              <a href="mailto:info@lebaronaesthetic.com">
+                <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.2" aria-hidden="true"><path d="M2 4h12v8.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V4z"/><path d="M2 4l6 5 6-5"/></svg>
+                Email Us
+              </a>
+              <a href="https://instagram.com/lebaron_srinagar" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A84C" stroke="none"/></svg>
+                Follow on Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MAPS ═══════════ -->
+  <section id="maps" aria-label="Location maps">
+    <div class="container">
+      <div class="maps-grid">
+        <div class="map-card">
+          <iframe
+            src="https://maps.google.com/maps?q=34.0840132,74.8195925&z=16&output=embed"
+            loading="lazy"
+            title="LeBaron Srinagar location map"
+            aria-label="Google Map showing LeBaron Srinagar branch">
+          </iframe>
+          <div class="map-label">📍 Srinagar — Wani Complex, Munawarabad</div>
+        </div>
+        <div class="map-card">
+          <iframe
+            src="https://maps.google.com/maps?q=B5/31+Safdarjung+Enclave+New+Delhi&z=15&output=embed"
+            loading="lazy"
+            title="LeBaron Delhi location map"
+            aria-label="Google Map showing LeBaron Delhi branch">
+          </iframe>
+          <div class="map-label">📍 Delhi — B5/31, Safdarjung Enclave, South Delhi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand-name">LeBaron</span>
+        <span class="footer-tagline">"Aesthetics to change your life"</span>
+        <p style="font-size:0.82rem;line-height:1.7;margin-bottom:1rem;">Enhancing beauty, fostering health and finding inner balance — since 2019.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/lebaron_srinagar" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A84C" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#C9A84C" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A84C"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#C9A84C" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <a href="https://wa.me/919717052687" class="social-icon" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact &amp; Booking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Srinagar</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          Wani Complex, Munawarabad<br>
+          Srinagar – 190001<br>
+          (Opp. JK Bank)<br><br>
+          +91 97170 52687<br>
+          Mon–Sat: 10 AM – 7 PM
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Delhi</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          B5/31, Safdarjung Enclave<br>
+          (Humayunpur), South Delhi<br>
+          New Delhi – 110029<br><br>
+          +91 97170 82687<br>
+          011-46109223
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LeBaron Aesthetics &amp; Dental Lounge. All rights reserved.</span>
+      <span>info@lebaronaesthetic.com</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919717052687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Aesthetics%20%26%20Dental%20Lounge." id="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobile-overlay');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      if (open) {
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => overlay.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('open');
+        setTimeout(() => { if (!overlay.classList.contains('open')) overlay.style.display = 'none'; }, 300);
+        document.body.style.overflow = '';
+      }
+    });
+    overlay.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>

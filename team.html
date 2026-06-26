@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Team — LeBaron Aesthetics & Dental Lounge</title>
+  <meta name="description" content="Meet the expert doctors and specialists at LeBaron Aesthetics & Dental Lounge. Global qualifications, personalized care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #7B1C2E;
+      --burgundy-dark: #5a1220;
+      --gold: #C9A84C;
+      --gold-light: #e0c070;
+      --ivory: #F9F5F0;
+      --dark: #1A1A1A;
+      --white: #FFFFFF;
+      --text-muted: #6b6b6b;
+      --border: rgba(201,168,76,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-label {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.35s, box-shadow 0.35s;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--dark);
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      border: 1.5px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      transition: transform 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--burgundy-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.open { opacity: 1; }
+    .mobile-overlay a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ivory);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .mobile-overlay a:hover { color: var(--gold); }
+
+    /* ─── PAGE HERO ──────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--burgundy-dark);
+      padding: 8rem 2rem 4rem;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(123,28,46,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.1) 0%, transparent 50%),
+        linear-gradient(160deg, #3a0b14 0%, #1a0508 45%, #0d0204 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .page-hero p {
+      color: rgba(249,245,240,0.72);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--burgundy);
+      margin-bottom: 0.8rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    /* ─── FOUNDER SECTION ────────────────────────── */
+    #founder {
+      padding: 5rem 2rem;
+      background: var(--ivory);
+    }
+    .founder-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 3rem;
+    }
+    .founder-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      color: var(--gold);
+      border: 3px solid var(--gold);
+    }
+    .founder-info h3 {
+      font-size: 2rem;
+      color: var(--burgundy);
+      margin-bottom: 0.3rem;
+    }
+    .founder-title {
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+    .founder-bio {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .founder-creds {
+      list-style: none;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+    .founder-creds li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .founder-creds li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── TEAM GRID ──────────────────────────────── */
+    #team-grid {
+      padding: 5rem 2rem;
+      background: var(--white);
+    }
+    .team-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-card {
+      text-align: center;
+      padding: 2.5rem 1.8rem;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(123,28,46,0.1);
+      border-color: var(--gold);
+    }
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    .team-card h3 {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .team-title {
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .team-bio {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .team-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+    }
+    .team-tag {
+      font-size: 0.68rem;
+      padding: 0.25rem 0.7rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── VALUES ─────────────────────────────────── */
+    #values {
+      padding: 5rem 2rem;
+      background: var(--burgundy-dark);
+    }
+    #values .section-header h2 { color: var(--ivory); }
+    #values .section-header p { color: rgba(249,245,240,0.6); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .value-card {
+      text-align: center;
+      padding: 2rem 1.2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(255,255,255,0.03);
+    }
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .value-icon svg { stroke: var(--gold); }
+    .value-card h4 {
+      font-size: 1.1rem;
+      color: var(--ivory);
+      margin-bottom: 0.5rem;
+    }
+    .value-card p {
+      font-size: 0.8rem;
+      color: rgba(249,245,240,0.6);
+      line-height: 1.6;
+    }
+
+    /* ─── CTA STRIP ──────────────────────────────── */
+    #cta-strip {
+      padding: 4rem 2rem;
+      background: var(--gold);
+      text-align: center;
+    }
+    #cta-strip h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    #cta-strip p {
+      color: rgba(26,26,26,0.7);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-dark {
+      padding: 0.85rem 2rem;
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-dark:hover { background: #333; }
+    .btn-dark-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--dark);
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-dark-outline:hover { background: var(--dark); color: var(--white); }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(249,245,240,0.7);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(249,245,240,0.5);
+      margin-top: 0.3rem;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .social-icon:hover { border-color: var(--gold); }
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a {
+      color: rgba(249,245,240,0.6);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-address {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: rgba(249,245,240,0.55);
+    }
+    .footer-address strong {
+      color: rgba(249,245,240,0.85);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: rgba(249,245,240,0.35);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── WHATSAPP FAB ───────────────────────────── */
+    #whatsapp-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 999;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    #whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      .founder-card { grid-template-columns: 1fr; text-align: center; }
+      .founder-avatar { width: 200px; margin: 0 auto; }
+      .team-row { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-overlay { display: flex; }
+      .team-row { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="LeBaron Aesthetics & Dental Lounge home">
+      <span class="nav-logo-main">LeBaron</span>
+      <span class="nav-logo-sub">Aesthetics &amp; Dental Lounge</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="team.html" aria-current="page">Our Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" id="mobile-overlay" role="dialog" aria-label="Navigation menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="team.html">Our Team</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Book Appointment</a>
+  </div>
+
+  <!-- ═══════════ PAGE HERO ═══════════ -->
+  <section class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="eyebrow" style="margin-bottom:1rem;color:var(--gold-light);">In Trusted Hands</div>
+      <h1 id="page-heading">Meet Our <em>Team</em></h1>
+      <p>Specialists who combine clinical precision with a deeply personal approach to your care. Every doctor brings global training and local dedication.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOUNDER ═══════════ -->
+  <section id="founder" aria-labelledby="founder-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Leadership</div>
+        <h2 id="founder-heading">Founder &amp; Medical Director</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar" aria-hidden="true">ST</div>
+        <div class="founder-info">
+          <h3>Dr. Syeda Tasneefa</h3>
+          <span class="founder-title">Founder &amp; Medical Director</span>
+          <p class="founder-bio">
+            Dr. Tasneefa founded LeBaron Aesthetics &amp; Dental Lounge with a vision to bring world-class aesthetic and dental care to Srinagar and Delhi. With advanced training in dermatopathology from Dubai and dermato-cosmetology from Mumbai, she leads a team committed to clinical excellence and patient-centered care. As an associate member of the Society of Hair Restoration Surgeons, she personally oversees all hair restoration protocols.
+          </p>
+          <ul class="founder-creds">
+            <li>PGD Dermatopathology — Dubai</li>
+            <li>PGD Dermato Cosmetology — Mumbai</li>
+            <li>Certified Hair Transplant Surgeon</li>
+            <li>Associate Member, Society of Hair Restoration Surgeons</li>
+            <li>9+ Years Clinical Experience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TEAM GRID ═══════════ -->
+  <section id="team-grid" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The Specialists</div>
+        <h2 id="team-heading">Our Doctors</h2>
+        <p>Each specialist brings unique expertise, advanced training, and a shared commitment to your wellbeing.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="team-row">
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">AA</div>
+          <h3>Dr. Almas Syed</h3>
+          <span class="team-title">Dental Surgeon &amp; Facial Aesthetics</span>
+          <p class="team-bio">Combines precision dental surgery with artistic facial aesthetics. Specializes in orthodontics, smile design, and non-surgical facial rejuvenation.</p>
+          <div class="team-tags">
+            <span class="team-tag">BDS</span>
+            <span class="team-tag">Facial Aesthetics</span>
+            <span class="team-tag">Smile Design</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">AZ</div>
+          <h3>Dr. Azra</h3>
+          <span class="team-title">Dental Surgeon</span>
+          <p class="team-bio">Known for her gentle touch and ability to put even the most anxious patients at ease. Expert in restorative and preventive dentistry.</p>
+          <div class="team-tags">
+            <span class="team-tag">BDS</span>
+            <span class="team-tag">Restorative</span>
+            <span class="team-tag">Patient Care</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">RC</div>
+          <h3>Dr. Rajesh Chauhan</h3>
+          <span class="team-title">Aesthetic Physician</span>
+          <p class="team-bio">Trained in Germany with expertise in advanced injectables, laser therapies, and regenerative aesthetic medicine.</p>
+          <div class="team-tags">
+            <span class="team-tag">Germany Trained</span>
+            <span class="team-tag">Injectables</span>
+            <span class="team-tag">Laser</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">MK</div>
+          <h3>Dr. Meera Kapoor</h3>
+          <span class="team-title">Hair Restoration Specialist</span>
+          <p class="team-bio">Dedicated exclusively to hair restoration. Expert in FUE transplantation, PRP, and GFC therapies with meticulous attention to natural hairline design.</p>
+          <div class="team-tags">
+            <span class="team-tag">FUE Expert</span>
+            <span class="team-tag">PRP/GFC</span>
+            <span class="team-tag">Hairline Design</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">SP</div>
+          <h3>Dr. Sanjay Patel</h3>
+          <span class="team-title">Oral &amp; Maxillofacial Surgeon</span>
+          <p class="team-bio">Specializes in complex extractions, implantology, and corrective jaw surgery with a focus on minimally invasive techniques.</p>
+          <div class="team-tags">
+            <span class="team-tag">MDS</span>
+            <span class="team-tag">Implants</span>
+            <span class="team-tag">Surgery</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" aria-hidden="true">NR</div>
+          <h3>Dr. Nisha Reddy</h3>
+          <span class="team-title">Permanent Makeup Artist</span>
+          <p class="team-bio">Internationally certified in microblading and cosmetic tattooing. Creates hyper-realistic brows and natural lip blush with an artist's eye.</p>
+          <div class="team-tags">
+            <span class="team-tag">Microblading</span>
+            <span class="team-tag">Lip Blush</span>
+            <span class="team-tag">Certified</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ VALUES ═══════════ -->
+  <section id="values" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" style="color:var(--gold);border-color:rgba(201,168,76,0.4);">Our Culture</div>
+        <h2 id="values-heading">What Drives Us</h2>
+        <p>The principles that guide every consultation, every treatment, every interaction.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+          <h4>Patient First</h4>
+          <p>Every decision begins with what is best for the individual patient, not convenience or convention.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Continuous Learning</h4>
+          <p>Our doctors regularly update their skills through international workshops and certification programs.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Clinical Safety</h4>
+          <p>Rigorous sterilization, premium products, and evidence-based protocols are non-negotiable.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Empathy</h4>
+          <p>We understand that aesthetic and dental care is deeply personal. We listen before we treat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA STRIP ═══════════ -->
+  <section id="cta-strip" aria-label="Book an appointment">
+    <h2>Ready to meet your doctor?</h2>
+    <p>Schedule a consultation with any of our specialists and begin your personalized care journey.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn-dark">Book Consultation</a>
+      <a href="https://wa.me/919717052687" class="btn-dark-outline" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand-name">LeBaron</span>
+        <span class="footer-tagline">"Aesthetics to change your life"</span>
+        <p style="font-size:0.82rem;line-height:1.7;margin-bottom:1rem;">Enhancing beauty, fostering health and finding inner balance — since 2019.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/lebaron_srinagar" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A84C" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#C9A84C" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A84C"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#C9A84C" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <a href="https://wa.me/919717052687" class="social-icon" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact &amp; Booking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Srinagar</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          Wani Complex, Munawarabad<br>
+          Srinagar – 190001<br>
+          (Opp. JK Bank)<br><br>
+          +91 97170 52687<br>
+          Mon–Sat: 10 AM – 7 PM
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Delhi</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          B5/31, Safdarjung Enclave<br>
+          (Humayunpur), South Delhi<br>
+          New Delhi – 110029<br><br>
+          +91 97170 82687<br>
+          011-46109223
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LeBaron Aesthetics &amp; Dental Lounge. All rights reserved.</span>
+      <span>info@lebaronaesthetic.com</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919717052687" id="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobile-overlay');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      if (open) {
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => overlay.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('open');
+        setTimeout(() => { if (!overlay.classList.contains('open')) overlay.style.display = 'none'; }, 300);
+        document.body.style.overflow = '';
+      }
+    });
+    overlay.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>

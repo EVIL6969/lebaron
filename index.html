@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeBaron Aesthetics & Dental Lounge — Srinagar & Delhi</title>
+  <meta name="description" content="LeBaron Aesthetics & Dental Lounge — premium aesthetic, dental & hair restoration clinic in Srinagar and Delhi. Advanced treatments, expert doctors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "LeBaron Aesthetics & Dental Lounge",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wani Complex, Munawarabad",
+      "addressLocality": "Srinagar",
+      "postalCode": "190001",
+      "addressRegion": "Jammu & Kashmir",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919717052687",
+    "openingHours": "Mo-Sa 10:00-19:00",
+    "url": "https://lebaronaesthetic.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "146"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #7B1C2E;
+      --burgundy-dark: #5a1220;
+      --gold: #C9A84C;
+      --gold-light: #e0c070;
+      --ivory: #F9F5F0;
+      --dark: #1A1A1A;
+      --white: #FFFFFF;
+      --text-muted: #6b6b6b;
+      --border: rgba(201,168,76,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-label {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.35s, box-shadow 0.35s;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+    .nav-logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+      margin-top: 2px;
+    }
+    #navbar.scrolled .nav-logo-sub { color: var(--text-muted); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.25s;
+    }
+    #navbar.scrolled .nav-links a { color: var(--dark); }
+    .nav-links a:hover, #navbar.scrolled .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      border: 1.5px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: background 0.3s, transform 0.3s;
+    }
+    #navbar.scrolled .hamburger span { background: var(--dark); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile overlay */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--burgundy-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.open { opacity: 1; }
+    .mobile-overlay a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ivory);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .mobile-overlay a:hover { color: var(--gold); }
+
+    /* ─── HERO ───────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--burgundy-dark);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(123,28,46,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.1) 0%, transparent 50%),
+        linear-gradient(160deg, #3a0b14 0%, #1a0508 45%, #0d0204 100%);
+      z-index: 0;
+    }
+    /* Subtle fine-line grid overlay for clinical feel */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.5rem;
+      max-width: 780px;
+    }
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .hero-h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      line-height: 1.08;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(249,245,240,0.72);
+      max-width: 560px;
+      margin: 0 auto 2.4rem;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1.5px solid rgba(201,168,76,0.5);
+      border-bottom: 1.5px solid rgba(201,168,76,0.5);
+      transform: rotate(45deg);
+    }
+
+    /* ─── TRUST BAR ──────────────────────────────── */
+    #trust-bar {
+      background: var(--ivory);
+      padding: 2.2rem 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      position: relative;
+    }
+    .trust-item + .trust-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+    .trust-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      display: block;
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+      display: block;
+      font-weight: 400;
+    }
+
+    /* ─── SECTION SHARED ─────────────────────────── */
+    section { position: relative; }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--burgundy);
+      margin-bottom: 0.8rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    /* ─── SERVICES ───────────────────────────────── */
+    #services {
+      padding: 6rem 2rem;
+      background: var(--white);
+      border-top: 3px solid var(--gold);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 2.2rem 1.8rem;
+      background: var(--white);
+      transition: transform 0.28s, box-shadow 0.28s;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.28s, border-color 0.28s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(123,28,46,0.1);
+      border-color: var(--gold);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      margin-bottom: 1.3rem;
+    }
+    .service-card h3 {
+      font-size: 1.35rem;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .btn-center { text-align: center; }
+    .btn-gold-outline {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-gold-outline:hover { background: var(--gold); color: var(--dark); }
+
+    /* ─── WHY LEBARON ────────────────────────────── */
+    #why {
+      padding: 6rem 2rem;
+      background: var(--ivory);
+    }
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .why-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    .why-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .why-item:last-child { border-bottom: none; }
+    .why-icon-wrap {
+      width: 80px; height: 80px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .why-item h3 {
+      font-size: 1.7rem;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+    .why-item p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .why-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ─── TEAM TEASER ────────────────────────────── */
+    #team-teaser {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+    .doctors-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .doctor-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid transparent;
+      transition: border-color 0.3s;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .doctor-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
+    }
+    .doctor-card:hover { border-color: var(--border); }
+    .doctor-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    .doctor-card h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .doctor-title {
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .doctor-creds {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────── */
+    #testimonials {
+      padding: 6rem 2rem;
+      background: var(--burgundy-dark);
+      overflow: hidden;
+    }
+    #testimonials .section-header h2 { color: var(--ivory); }
+    #testimonials .section-header p { color: rgba(249,245,240,0.6); }
+    #testimonials .gold-rule { background: var(--gold); }
+
+    .testimonials-track-wrap {
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+    }
+    .testimonials-track-wrap:active { cursor: grabbing; }
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .testimonial-card {
+      min-width: calc(100% / 3 - 1rem);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2.5rem 2rem;
+      flex-shrink: 0;
+    }
+    .tcard-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .tcard-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .tcard-source {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.7);
+      font-weight: 500;
+    }
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+    }
+    .dot.active { background: var(--gold); transform: scale(1.3); }
+
+    /* ─── LOCATIONS ──────────────────────────────── */
+    #locations {
+      padding: 6rem 2rem;
+      background: var(--ivory);
+    }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .location-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .location-map {
+      width: 100%;
+      height: 220px;
+      border: none;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .location-info {
+      padding: 2rem;
+    }
+    .location-badge {
+      display: inline-block;
+      background: var(--burgundy);
+      color: var(--gold);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .location-info h3 {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+    .location-detail {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .location-detail svg { flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── BOOKING CTA ────────────────────────────── */
+    #cta-strip {
+      padding: 4rem 2rem;
+      background: var(--gold);
+      text-align: center;
+    }
+    #cta-strip h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    #cta-strip p {
+      color: rgba(26,26,26,0.7);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-dark {
+      padding: 0.85rem 2rem;
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-dark:hover { background: #333; }
+    .btn-dark-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--dark);
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-dark-outline:hover { background: var(--dark); color: var(--white); }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(249,245,240,0.7);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(249,245,240,0.5);
+      margin-top: 0.3rem;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .social-icon:hover { border-color: var(--gold); }
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a {
+      color: rgba(249,245,240,0.6);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-address {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: rgba(249,245,240,0.55);
+    }
+    .footer-address strong {
+      color: rgba(249,245,240,0.85);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: rgba(249,245,240,0.35);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── WHATSAPP FAB ───────────────────────────── */
+    #whatsapp-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 999;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    #whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .doctors-row { grid-template-columns: repeat(2, 1fr); }
+      .locations-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .testimonial-card { min-width: calc(100% / 2 - 0.75rem); }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-overlay { display: flex; }
+      .trust-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-item + .trust-item::before { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-item { grid-template-columns: 1fr; gap: 1rem; }
+      .why-icon-wrap { width: 60px; height: 60px; }
+      .doctors-row { grid-template-columns: 1fr; }
+      .testimonial-card { min-width: calc(100% - 0); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-actions { flex-direction: column; align-items: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="LeBaron Aesthetics & Dental Lounge home">
+      <span class="nav-logo-main">LeBaron</span>
+      <span class="nav-logo-sub">Aesthetics &amp; Dental Lounge</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay" role="dialog" aria-label="Navigation menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="team.html">Our Team</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Book Appointment</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Srinagar &amp; Delhi</div>
+      <h1 class="hero-h1" id="hero-heading">Where <em>Beauty</em><br>Meets Science</h1>
+      <p class="hero-sub">Advanced aesthetics, dental care &amp; hair restoration — crafted for you at LeBaron.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">Book Appointment</a>
+        <a href="services.html" class="btn-outline">Explore Services →</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TRUST BAR ═══════════ -->
+  <section id="trust-bar" aria-label="Clinic highlights">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="trust-number" data-target="4.8" data-decimal="1">4.8</span>
+        <span class="trust-label">★ Google Rating</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number" data-target="300" data-suffix="+">300+</span>
+        <span class="trust-label">Happy Patients</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number" data-target="9" data-suffix="+">9+</span>
+        <span class="trust-label">Years Expertise</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number" data-target="2">2</span>
+        <span class="trust-label">Premium Branches</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICES SNAPSHOT ═══════════ -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What We Offer</div>
+        <h2 id="services-heading">Our Specialties</h2>
+        <p>From clinical dentistry to advanced aesthetic medicine — all under one roof, in a lounge designed for you.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M24 6C18 6 13 11 13 17c0 4 2 7.5 5 9.5L19 40h10l1-13.5c3-2 5-5.5 5-9.5 0-6-5-11-11-11z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M19 17h10M19 22h10" stroke="#7B1C2E" stroke-width="1.2"/>
+          </svg>
+          <h3>Dental Lounge</h3>
+          <p>Braces, implants, cosmetic dentistry &amp; smile design — precision dental care in a calm, luxurious environment.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="14" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M18 20c0-3.3 2.7-6 6-6s6 2.7 6 6c0 4-6 12-6 12S18 24 18 20z" stroke="#7B1C2E" stroke-width="1.2" fill="none"/>
+          </svg>
+          <h3>Skin &amp; Aesthetics</h3>
+          <p>Medical-grade facials, laser resurfacing, brightening treatments &amp; hydrafacials for radiant skin.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="18" r="6" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M14 38c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#7B1C2E" stroke-width="1.2" fill="none"/>
+            <path d="M31 10v8M35 14H27" stroke="#C9A84C" stroke-width="1.2"/>
+          </svg>
+          <h3>Botox &amp; Fillers</h3>
+          <p>Juvéderm® dermal fillers, Botox® anti-aging injectables &amp; lip enhancement for natural-looking results.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="14" rx="10" ry="7" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M18 14c0 0-2 10-2 20" stroke="#7B1C2E" stroke-width="1.2"/>
+            <path d="M30 14c0 0 2 10 2 20" stroke="#7B1C2E" stroke-width="1.2"/>
+            <path d="M20 34h8M19 26h10" stroke="#C9A84C" stroke-width="1"/>
+          </svg>
+          <h3>Hair Restoration</h3>
+          <p>Advanced FUE hair transplant, GFC &amp; PRP therapy by a certified hair restoration surgeon.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="12" y="10" width="24" height="30" rx="2" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M18 18h12M18 23h12M18 28h8" stroke="#7B1C2E" stroke-width="1.2"/>
+            <path d="M24 36l3-3-3-3" stroke="#C9A84C" stroke-width="1"/>
+          </svg>
+          <h3>Body Contouring</h3>
+          <p>Body sculpting, toning, cellulite treatment &amp; medically supervised weight loss programs.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="22" rx="12" ry="8" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M16 30c2 4 4 6 8 6s6-2 8-6" stroke="#7B1C2E" stroke-width="1.2" fill="none"/>
+            <circle cx="24" cy="14" r="4" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          </svg>
+          <h3>Permanent Makeup</h3>
+          <p>Microbladed brows, permanent liner &amp; lip blush — effortless beauty from the moment you wake up.</p>
+        </div>
+
+      </div>
+      <div class="btn-center">
+        <a href="services.html" class="btn-gold-outline">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY LEBARON ═══════════ -->
+  <section id="why" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Our Promise</div>
+        <h2 id="why-heading">Why LeBaron</h2>
+        <p>A clinic built on the conviction that excellence in medicine and excellence in experience are not separate things.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="why-list">
+
+        <div class="why-item">
+          <div class="why-icon-wrap">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="12" r="6" stroke="#C9A84C" stroke-width="1.3" fill="none"/>
+              <path d="M6 30c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="#C9A84C" stroke-width="1.3" fill="none"/>
+              <path d="M24 8l2 2 4-4" stroke="#7B1C2E" stroke-width="1.3"/>
+            </svg>
+          </div>
+          <div>
+            <span class="why-number">01</span>
+            <h3>Expert Team</h3>
+            <p>Our doctors hold qualifications from Dubai, Germany, and India's leading institutes. Dr. Tasneefa is an associate member of the Society of Hair Restoration Surgeons. Dr. Chauhan trained in Germany. Every specialist on our team brings a global perspective to your care.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-icon-wrap">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="6" width="24" height="24" rx="2" stroke="#C9A84C" stroke-width="1.3" fill="none"/>
+              <path d="M12 18h12M12 13h8M12 23h6" stroke="#7B1C2E" stroke-width="1.2"/>
+              <circle cx="27" cy="27" r="5" fill="#5a1220" stroke="#C9A84C" stroke-width="1.2"/>
+              <path d="M25 27l1.5 1.5 2.5-2.5" stroke="#C9A84C" stroke-width="1"/>
+            </svg>
+          </div>
+          <div>
+            <span class="why-number">02</span>
+            <h3>Personalized Care</h3>
+            <p>No two faces, scalps, or smiles are identical. Every treatment plan at LeBaron is designed around your individual anatomy, goals, and timeline — a genuine partnership between doctor and patient, not a template applied to a number.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-icon-wrap">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M18 4l3.5 9h9.5l-7.5 5.5 2.8 9L18 22.5l-8.3 5 2.8-9L5 13h9.5z" stroke="#C9A84C" stroke-width="1.3" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <span class="why-number">03</span>
+            <h3>Cutting-Edge Technology</h3>
+            <p>From FUE hair transplant systems to medical-grade laser platforms, we invest in the same equipment used in leading clinics across Europe and the Gulf — so patients in Srinagar and Delhi receive world-class outcomes, close to home.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MEET THE DOCTORS ═══════════ -->
+  <section id="team-teaser" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">In Trusted Hands</div>
+        <h2 id="team-heading">Meet the Doctors</h2>
+        <p>Specialists who combine clinical precision with a deeply personal approach to your care.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="doctors-row">
+
+        <div class="doctor-card">
+          <div class="doctor-avatar" aria-hidden="true">ST</div>
+          <h3>Dr. Syeda Tasneefa</h3>
+          <span class="doctor-title">Founder &amp; Medical Director</span>
+          <p class="doctor-creds">PGD Dermatopathology, Dubai · PGD Dermato Cosmetology, Mumbai · Certified Hair Transplant Surgeon</p>
+        </div>
+
+        <div class="doctor-card">
+          <div class="doctor-avatar" aria-hidden="true">AA</div>
+          <h3>Dr. Almas Syed</h3>
+          <span class="doctor-title">Dental Surgeon &amp; Facial Aesthetics</span>
+          <p class="doctor-creds">BDS · Diploma in Facial Aesthetics · Orthodontics &amp; smile design specialist</p>
+        </div>
+
+        <div class="doctor-card">
+          <div class="doctor-avatar" aria-hidden="true">AZ</div>
+          <h3>Dr. Azra</h3>
+          <span class="doctor-title">Dental Surgeon</span>
+          <p class="doctor-creds">BDS · Known for precision, warmth &amp; putting nervous patients completely at ease</p>
+        </div>
+
+      </div>
+      <div class="btn-center">
+        <a href="team.html" class="btn-gold-outline">Meet the Full Team →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section id="testimonials" aria-labelledby="testi-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" style="color:var(--gold);border-color:rgba(201,168,76,0.4);">Patient Stories</div>
+        <h2 id="testi-heading">What Our Patients Say</h2>
+        <p>Verified reviews from patients who trusted us with their care.</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="testimonials-track-wrap" id="slider-wrap" aria-roledescription="carousel" aria-label="Patient testimonials">
+        <div class="testimonials-track" id="ttrack">
+
+          <div class="testimonial-card" role="group" aria-label="Testimonial 1">
+            <span class="tcard-stars" aria-label="5 stars">★★★★★</span>
+            <blockquote class="tcard-text">"Dr. Azra and her assistant Tazkiya showed exceptional professionalism. I felt comfortable and well-informed throughout my entire treatment."</blockquote>
+            <span class="tcard-source">Google Review · Verified Patient</span>
+          </div>
+
+          <div class="testimonial-card" role="group" aria-label="Testimonial 2">
+            <span class="tcard-stars" aria-label="5 stars">★★★★★</span>
+            <blockquote class="tcard-text">"LeBaron is the best hair treatment clinic I've come across. The results went beyond my imagination — visible transformation in just three months."</blockquote>
+            <span class="tcard-source">Google Review · Verified Patient</span>
+          </div>
+
+          <div class="testimonial-card" role="group" aria-label="Testimonial 3">
+            <span class="tcard-stars" aria-label="5 stars">★★★★★</span>
+            <blockquote class="tcard-text">"Getting braces at LeBaron was a wonderful experience. Dr. Almas and the team made the whole process smooth, stress-free, and comfortable from start to finish."</blockquote>
+            <span class="tcard-source">Google Review · Verified Patient</span>
+          </div>
+
+        </div>
+      </div>
+      <div class="testimonials-dots" role="tablist" aria-label="Testimonial navigation">
+        <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+        <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+        <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ LOCATIONS ═══════════ -->
+  <section id="locations" aria-labelledby="loc-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Find Us</div>
+        <h2 id="loc-heading">Our Branches</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="locations-grid">
+
+        <div class="location-card">
+          <iframe
+            class="location-map"
+            src="https://maps.google.com/maps?q=34.0840132,74.8195925&z=16&output=embed"
+            loading="lazy"
+            title="LeBaron Srinagar location map"
+            aria-label="Google Map showing LeBaron Srinagar branch">
+          </iframe>
+          <div class="location-info">
+            <span class="location-badge">Srinagar</span>
+            <h3>Srinagar Branch</h3>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z" stroke="#C9A84C" stroke-width="1" fill="none"/><circle cx="8" cy="6" r="1.5" stroke="#C9A84C" stroke-width="1"/></svg>
+              Wani Complex, Munawarabad, Srinagar – 190001<br>(Opposite JK Bank)
+            </div>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z" stroke="#C9A84C" stroke-width="1" fill="none"/></svg>
+              +91 97170 52687
+            </div>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#C9A84C" stroke-width="1"/><path d="M8 5v3.5l2 2" stroke="#C9A84C" stroke-width="1"/></svg>
+              Mon–Sat: 10:00 AM – 7:00 PM &nbsp;·&nbsp; Sunday: Closed
+            </div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <iframe
+            class="location-map"
+            src="https://maps.google.com/maps?q=B5/31+Safdarjung+Enclave+New+Delhi&z=15&output=embed"
+            loading="lazy"
+            title="LeBaron Delhi location map"
+            aria-label="Google Map showing LeBaron Delhi branch">
+          </iframe>
+          <div class="location-info">
+            <span class="location-badge">Delhi</span>
+            <h3>Delhi Branch</h3>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z" stroke="#C9A84C" stroke-width="1" fill="none"/><circle cx="8" cy="6" r="1.5" stroke="#C9A84C" stroke-width="1"/></svg>
+              B5/31, Safdarjung Enclave (Humayunpur)<br>South Delhi – 110029
+            </div>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z" stroke="#C9A84C" stroke-width="1" fill="none"/></svg>
+              +91 97170 82687 &nbsp;·&nbsp; 011-46109223
+            </div>
+            <div class="location-detail">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12v8.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V4z" stroke="#C9A84C" stroke-width="1"/><path d="M2 4l6 5 6-5" stroke="#C9A84C" stroke-width="1"/></svg>
+              info@lebaronaesthetic.com
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ BOOKING CTA STRIP ═══════════ -->
+  <section id="cta-strip" aria-label="Book an appointment">
+    <h2>Ready to begin your transformation?</h2>
+    <p>Our team is one message away. Reach out and let's craft your plan together.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/919717052687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Aesthetics%20%26%20Dental%20Lounge." class="btn-dark" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="tel:+919717052687" class="btn-dark-outline">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h2.5l1.5 3.5-2 1.5c.8 1.5 2.5 3.2 4 4l1.5-2 3.5 1.5v2.5C12.5 13.5 3.5 4.5 3 3z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+        Call +91 97170 52687
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand-name">LeBaron</span>
+        <span class="footer-tagline">"Aesthetics to change your life"</span>
+        <p style="font-size:0.82rem;line-height:1.7;margin-bottom:1rem;">Enhancing beauty, fostering health and finding inner balance — since 2019.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/lebaron_srinagar" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A84C" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#C9A84C" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A84C"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#C9A84C" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <a href="https://wa.me/919717052687" class="social-icon" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact &amp; Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Srinagar</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          Wani Complex, Munawarabad<br>
+          Srinagar – 190001<br>
+          (Opp. JK Bank)<br><br>
+          +91 97170 52687<br>
+          Mon–Sat: 10 AM – 7 PM
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Delhi</h4>
+        <p class="footer-address">
+          <strong>LeBaron Aesthetics &amp; Dental Lounge</strong>
+          B5/31, Safdarjung Enclave<br>
+          (Humayunpur), South Delhi<br>
+          New Delhi – 110029<br><br>
+          +91 97170 82687<br>
+          011-46109223
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 LeBaron Aesthetics &amp; Dental Lounge. All rights reserved.</span>
+      <span>info@lebaronaesthetic.com</span>
+    </div>
+  </footer>
+
+  <!-- ═══════════ WHATSAPP FAB ═══════════ -->
+  <a href="https://wa.me/919717052687?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20LeBaron%20Aesthetics%20%26%20Dental%20Lounge." id="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ═══════════ JAVASCRIPT ═══════════ -->
+  <script>
+    // ─── NAV scroll ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ─── Hamburger ───
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobile-overlay');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      if (open) {
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => overlay.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('open');
+        overlay.addEventListener('transitionend', () => {
+          if (!overlay.classList.contains('open')) overlay.style.display = 'none';
+        }, { once: true });
+        document.body.style.overflow = '';
+      }
+    });
+    overlay.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── IntersectionObserver fade-in ───
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          fadeObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.service-card, .doctor-card, .why-item').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+      fadeObserver.observe(el);
+    });
+
+    // ─── Stats count-up ───
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = parseFloat(el.dataset.target);
+          const suffix = el.dataset.suffix || '';
+          const decimal = parseInt(el.dataset.decimal) || 0;
+          const duration = 1600;
+          const start = performance.now();
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = eased * target;
+            el.textContent = value.toFixed(decimal) + suffix;
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+          statsObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.trust-number[data-target]').forEach(el => statsObserver.observe(el));
+
+    // ─── Testimonials slider ───
+    const track = document.getElementById('ttrack');
+    const dots = document.querySelectorAll('.dot');
+    const wrap = document.getElementById('slider-wrap');
+    let current = 0;
+    let autoTimer;
+    let isDragging = false;
+    let startX = 0;
+    let startTranslate = 0;
+    const TOTAL = 3;
+
+    function getCardWidth() {
+      const card = track.querySelector('.testimonial-card');
+      return card ? card.offsetWidth + 24 : track.offsetWidth; // 24 = gap
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, TOTAL - 1));
+      const offset = current * getCardWidth();
+      track.style.transform = `translateX(-${offset}px)`;
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-selected', i === current);
+      });
+    }
+
+    function startAuto() {
+      autoTimer = setInterval(() => goTo((current + 1) % TOTAL), 4500);
+    }
+    function stopAuto() { clearInterval(autoTimer); }
+
+    dots.forEach(d => d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.index); startAuto(); }));
+
+    // Drag support
+    wrap.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; stopAuto(); track.style.transition = 'none'; });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const delta = e.clientX - startX;
+      const base = current * getCardWidth();
+      track.style.transform = `translateX(${-base + delta}px)`;
+    });
+    document.addEventListener('mouseup', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = '';
+      const delta = e.clientX - startX;
+      if (Math.abs(delta) > 60) goTo(delta < 0 ? current + 1 : current - 1);
+      else goTo(current);
+      startAuto();
+    });
+
+    // Touch support
+    wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopAuto(); track.style.transition = 'none'; }, { passive: true });
+    wrap.addEventListener('touchmove', e => {
+      const delta = e.touches[0].clientX - startX;
+      const base = current * getCardWidth();
+      track.style.transform = `translateX(${-base + delta}px)`;
+    }, { passive: true });
+    wrap.addEventListener('touchend', e => {
+      track.style.transition = '';
+      const delta = e.changedTouches[0].clientX - startX;
+      if (Math.abs(delta) > 50) goTo(delta < 0 ? current + 1 : current - 1);
+      else goTo(current);
+      startAuto();
+    });
+
+    wrap.addEventListener('mouseenter', stopAuto);
+    wrap.addEventListener('mouseleave', startAuto);
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => goTo(current), { passive: true });
+
+    startAuto();
+  </script>
+</body>
+</html>
