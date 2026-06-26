@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | LeBaron Aesthetics & Dental Lounge</title>
+  <meta name="description" content="LeBaron Aesthetics & Dental Lounge — Premium aesthetic, dental and hair restoration clinic in Srinagar & Delhi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+  :root {
+    --burgundy: #7B1C2E;
+    --burgundy-dark: #5a1522;
+    --gold: #C9A84C;
+    --gold-light: #e0c878;
+    --ivory: #F9F5F0;
+    --dark: #1A1A1A;
+    --white: #FFFFFF;
+    --gray: #888;
+    --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-hover: 0 16px 40px rgba(0,0,0,0.12);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', serif; font-weight:600; line-height:1.2; }
+  .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+  a { text-decoration:none; color:inherit; }
+  ul { list-style:none; }
+  img { max-width:100%; display:block; }
+
+  /* NAV */
+  #navbar {
+    position:fixed; top:0; left:0; width:100%; z-index:1000;
+    transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    padding:16px 0;
+  }
+  #navbar.scrolled {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  #navbar.scrolled .logo-main { color: var(--burgundy); }
+  #navbar.scrolled .logo-sub { color: var(--dark); }
+  #navbar.scrolled .nav-link { color: var(--dark); }
+  #navbar.scrolled .hamburger span { background: var(--dark); }
+  .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+  .logo-group { display:flex; flex-direction:column; }
+  .logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:1.8rem; font-weight:600; color: var(--gold);
+    letter-spacing:1px; line-height:1;
+  }
+  .logo-sub {
+    font-size:0.62rem; text-transform:uppercase; letter-spacing:2.5px;
+    color: var(--ivory); opacity:0.8; margin-top:2px;
+  }
+  .nav-links { display:flex; align-items:center; gap:32px; }
+  .nav-link {
+    font-size:0.85rem; font-weight:500; color: var(--ivory);
+    letter-spacing:0.5px; position:relative; padding:4px 0;
+    transition: color 0.3s;
+  }
+  .nav-link::after {
+    content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px;
+    background: var(--gold); transition: width 0.3s;
+  }
+  .nav-link:hover::after { width:100%; }
+  .btn-nav {
+    border:1.5px solid var(--gold); color: var(--gold);
+    padding:8px 22px; font-size:0.8rem; font-weight:500;
+    letter-spacing:0.5px; transition: all 0.3s; border-radius:2px;
+  }
+  .btn-nav:hover { background: var(--gold); color: var(--burgundy); }
+  .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; }
+  .hamburger span { display:block; width:24px; height:2px; background: var(--ivory); transition:0.3s; }
+  .mobile-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,0.5); opacity:0; pointer-events:none;
+    transition: opacity 0.3s; z-index:1001;
+  }
+  .mobile-overlay.active { opacity:1; pointer-events:all; }
+  .mobile-menu {
+    position:fixed; top:0; right:-320px; width:320px; height:100vh;
+    background: var(--white); padding:60px 32px; display:flex; flex-direction:column; gap:24px;
+    transition: right 0.35s ease; z-index:1002; box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+  }
+  .mobile-overlay.active .mobile-menu { right:0; }
+  .mobile-menu a { font-size:1.1rem; font-weight:500; color: var(--dark); }
+  .btn-mobile {
+    border:1.5px solid var(--gold); color: var(--gold); text-align:center;
+    padding:12px; margin-top:8px; font-weight:500;
+  }
+  .close-menu {
+    position:absolute; top:20px; right:24px; font-size:2rem; background:none; border:none; cursor:pointer; color: var(--dark);
+  }
+
+  /* FOOTER */
+  .site-footer { background: var(--burgundy); color: var(--ivory); padding:64px 0 0; }
+  .footer-grid { display:grid; grid-template-columns:1.2fr 1.5fr 0.8fr 0.8fr; gap:48px; }
+  .footer-logo { font-family:'Cormorant Garamond', serif; font-size:1.8rem; color: var(--gold); }
+  .footer-tagline { font-style:italic; margin:8px 0 4px; opacity:0.9; }
+  .footer-mantra { font-size:0.8rem; opacity:0.6; max-width:260px; }
+  .address-block h4, .footer-links h4, .footer-social h4 {
+    font-family:'Inter',sans-serif; font-size:0.75rem; text-transform:uppercase; letter-spacing:1.5px;
+    color: var(--gold); margin-bottom:16px; font-weight:600;
+  }
+  .address-block p, .footer-links a, .footer-social p { font-size:0.85rem; opacity:0.85; margin-bottom:8px; display:block; }
+  .footer-links a:hover { color: var(--gold); }
+  .social-icons { display:flex; gap:14px; margin-bottom:12px; }
+  .social-icons a { color: var(--ivory); transition: color 0.3s; }
+  .social-icons a:hover { color: var(--gold); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); margin-top:48px; padding:24px 0; text-align:center; font-size:0.8rem; opacity:0.6; }
+  .whatsapp-fab {
+    position:fixed; bottom:24px; right:24px; width:56px; height:56px;
+    background:#25D366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 16px rgba(37,211,102,0.4); z-index:999; transition: transform 0.3s;
+  }
+  .whatsapp-fab:hover { transform: scale(1.08); }
+
+  /* ANIMATIONS */
+  .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* BUTTONS */
+  .btn-primary {
+    display:inline-block; background: var(--gold); color: var(--burgundy-dark);
+    padding:14px 32px; font-size:0.85rem; font-weight:600; letter-spacing:0.5px;
+    border-radius:2px; transition: all 0.3s; border:none; cursor:pointer;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .btn-outline {
+    display:inline-block; border:1.5px solid var(--gold); color: var(--gold);
+    padding:14px 32px; font-size:0.85rem; font-weight:500; letter-spacing:0.5px;
+    border-radius:2px; transition: all 0.3s; background:transparent; cursor:pointer;
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--burgundy-dark); }
+  .btn-outline-dark {
+    display:inline-block; border:1.5px solid var(--burgundy); color: var(--burgundy);
+    padding:14px 32px; font-size:0.85rem; font-weight:500; letter-spacing:0.5px;
+    border-radius:2px; transition: all 0.3s; background:transparent; cursor:pointer;
+  }
+  .btn-outline-dark:hover { background: var(--burgundy); color: var(--ivory); }
+
+  /* SECTION HEADERS */
+  .section-header { text-align:center; margin-bottom:56px; }
+  .section-header h2 { font-size:2.6rem; color: var(--burgundy); margin-bottom:12px; }
+  .section-header p { color: var(--gray); font-size:1rem; max-width:600px; margin:0 auto; }
+  .gold-line { width:60px; height:2px; background: var(--gold); margin:16px auto 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .footer-grid { grid-template-columns:1fr 1fr; gap:32px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    .footer-grid { grid-template-columns:1fr; gap:32px; }
+    .section-header h2 { font-size:2rem; }
+  }
+
+
+  .page-hero-about {
+    min-height:380px; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, var(--ivory), #f0e8dc);
+    text-align:center; padding:140px 24px 60px; color: var(--burgundy);
+  }
+  .page-hero-about h1 { font-size:clamp(2rem, 5vw, 3.2rem); margin-bottom:12px; }
+  .page-hero-about .breadcrumb { font-size:0.8rem; color: var(--gray); }
+  .page-hero-about .breadcrumb a { color: var(--burgundy); }
+
+  /* BRAND STORY */
+  .brand-story { padding:96px 0; background: var(--white); }
+  .story-row { display:grid; grid-template-columns:1fr 1.3fr; gap:64px; align-items:center; }
+  .story-quote {
+    font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:600;
+    color: var(--burgundy); line-height:1.3; position:relative; padding-left:24px;
+    border-left:3px solid var(--gold);
+  }
+  .story-text p { font-size:1rem; color: var(--gray); line-height:1.8; margin-bottom:16px; }
+  .story-text p strong { color: var(--burgundy); }
+
+  /* VALUES */
+  .values-section { padding:96px 0; background: var(--ivory); }
+  .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+  .value-card { background: var(--white); padding:48px 32px; text-align:center; border-radius:2px; box-shadow: var(--shadow); transition: all 0.4s; }
+  .value-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  .value-icon { width:64px; height:64px; margin:0 auto 24px; color: var(--gold); }
+  .value-card h3 { font-size:1.4rem; color: var(--burgundy); margin-bottom:12px; }
+  .value-card p { font-size:0.92rem; color: var(--gray); line-height:1.7; }
+
+  /* TIMELINE */
+  .timeline-section { padding:96px 0; background: var(--white); }
+  .timeline { position:relative; max-width:700px; margin:0 auto; padding-left:40px; }
+  .timeline::before { content:''; position:absolute; left:12px; top:0; bottom:0; width:2px; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.2)); }
+  .timeline-item { position:relative; margin-bottom:48px; }
+  .timeline-item::before { content:''; position:absolute; left:-34px; top:4px; width:14px; height:14px; border-radius:50%; background: var(--gold); border:3px solid var(--white); box-shadow:0 0 0 2px var(--gold); }
+  .timeline-year { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color: var(--burgundy); margin-bottom:6px; }
+  .timeline-text { font-size:0.95rem; color: var(--gray); line-height:1.7; }
+
+  /* ACCREDITATIONS */
+  .accred-section { padding:80px 0; background: var(--ivory); }
+  .accred-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .accred-card { background: var(--white); padding:32px 24px; text-align:center; border-radius:2px; box-shadow: var(--shadow); border-top:3px solid var(--gold); }
+  .accred-card svg { width:40px; height:40px; color: var(--gold); margin-bottom:16px; }
+  .accred-card p { font-size:0.88rem; color: var(--dark); font-weight:500; line-height:1.5; }
+
+  /* INSTAGRAM */
+  .instagram-section { padding:96px 0; background: var(--white); text-align:center; }
+  .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:40px 0; }
+  .insta-post { aspect-ratio:1; background: linear-gradient(135deg, var(--ivory), #f0e8dc); border-radius:4px; display:flex; align-items:center; justify-content:center; color: var(--gold); font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:1px; border:1px solid rgba(201,168,76,0.2); }
+
+  @media (max-width: 768px) {
+    .story-row { grid-template-columns:1fr; }
+    .values-grid { grid-template-columns:1fr; }
+    .accred-grid { grid-template-columns:1fr 1fr; }
+    .insta-grid { grid-template-columns:repeat(3,1fr); }
+  }
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "LeBaron Aesthetics & Dental Lounge",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wani Complex, Munawarabad",
+      "addressLocality": "Srinagar",
+      "postalCode": "190001",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919717052687",
+    "openingHours": "Mo-Sa 10:00-19:00",
+    "url": "https://lebaronaesthetic.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "146"
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo-group">
+        <span class="logo-main">LeBaron</span>
+        <span class="logo-sub">Aesthetics & Dental Lounge</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="team.html" class="nav-link">Our Team</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="contact.html" class="btn-nav">Book Appointment</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay">
+      <div class="mobile-menu">
+        <button class="close-menu" id="closeMenu" aria-label="Close">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Our Team</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-mobile">Book Appointment</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HERO -->
+  <section class="page-hero-about">
+    <div>
+      <h1>Our Story</h1>
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>About Us</div>
+    </div>
+  </section>
+
+  <!-- BRAND STORY -->
+  <section class="brand-story">
+    <div class="container">
+      <div class="story-row reveal">
+        <div class="story-quote">"Beauty is a partnership."</div>
+        <div class="story-text">
+          <p><strong>Founded in 2019</strong> by Dr. Syeda Tasneefa and Mohammad Yaseen, LeBaron Aesthetics & Dental Lounge was born from a shared belief: that world-class aesthetic and dental care should be accessible, personal, and transformative.</p>
+          <p>What began as a vision in Delhi has grown into a trusted name across North India. In 2024, we opened our Srinagar branch at Wani Complex, Munawarabad — bringing the same standards of excellence to Kashmir.</p>
+          <p>Our mission is simple: <strong>personalized, cutting-edge beauty solutions</strong> delivered with compassion. We do not believe in cookie-cutter treatments. Every procedure is a doctor-patient partnership, tailored to your individual needs and anatomy, for results that look beautifully natural.</p>
+          <p>From advanced hair restoration and skin aesthetics to precision dental care, LeBaron is where science meets artistry — and where you begin your transformation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Values</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M32 12l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z"/></svg>
+          </div>
+          <h3>Compassion</h3>
+          <p>We treat every patient like family. Your comfort, trust, and wellbeing are at the heart of everything we do.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><circle cx="32" cy="32" r="20"/><path d="M32 18v28M20 32h24"/></svg>
+          </div>
+          <h3>Precision</h3>
+          <p>Tailored treatment plans, not cookie-cutter solutions. Every detail is calibrated to your unique anatomy and goals.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 32l8-8 8 8 16-16"/><path d="M48 16v12h-12"/></svg>
+          </div>
+          <h3>Innovation</h3>
+          <p>We continuously adopt the latest technology and techniques from global aesthetic medicine to deliver superior outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Journey</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-text">LeBaron Aesthetic Private Ltd incorporated in Delhi, founded by Dr. Syeda Tasneefa and Mohammad Yaseen.</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2020–21</div>
+          <div class="timeline-text">Gained recognition across Delhi. Loyal client base grows through word-of-mouth and exceptional results.</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2022–23</div>
+          <div class="timeline-text">Hair transplant excellence achieved — 100+ successful cases. Certified by Society of Hair Restoration Surgeons.</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-text">Srinagar branch opens at Wani Complex, Munawarabad — bringing premium aesthetics and dental care to Kashmir.</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-text">4.8★ across Google and Justdial. 300+ verified patients. LeBaron continues to set new standards in North India.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCREDITATIONS -->
+  <section class="accred-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Accreditations & Associations</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="accred-grid">
+        <div class="accred-card reveal">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M32 8l4 10h10l-8 6 3 10-9-6-9 6 3-10-8-6h10z"/></svg>
+          <p>Society of Hair Restoration Surgeons<br><span style="color:var(--gray);font-size:0.8rem;">Associate Member</span></p>
+        </div>
+        <div class="accred-card reveal">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="8" width="40" height="48" rx="2"/><path d="M20 20h24M20 30h16M20 40h20"/></svg>
+          <p>PGD Dermato Cosmetology<br><span style="color:var(--gray);font-size:0.8rem;">IICTN Mumbai</span></p>
+        </div>
+        <div class="accred-card reveal">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><circle cx="32" cy="32" r="22"/><path d="M32 16v16l10 6"/></svg>
+          <p>PGD Dermatopathology<br><span style="color:var(--gray);font-size:0.8rem;">Dubai, 2018</span></p>
+        </div>
+        <div class="accred-card reveal">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 48l8-16 8 10 16-22"/><path d="M48 20v12h-12"/></svg>
+          <p>Fellowship in Clinical Cosmetology<br><span style="color:var(--gray);font-size:0.8rem;">Germany</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Follow Our Journey</h2>
+        <p style="color:var(--gray);">@lebaron_srinagar — results, tips & updates</p>
+        <div class="gold-line"></div>
+      </div>
+      <div class="insta-grid reveal">
+        <div class="insta-post">Post 1</div>
+        <div class="insta-post">Post 2</div>
+        <div class="insta-post">Post 3</div>
+        <div class="insta-post">Post 4</div>
+        <div class="insta-post">Post 5</div>
+        <div class="insta-post">Post 6</div>
+      </div>
+      <a href="https://instagram.com/lebaron_srinagar" target="_blank" class="btn-outline-dark reveal">Open Instagram</a>
+    </div>
+  </section>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">LeBaron</span>
+          <p class="footer-tagline">"Aesthetics to change your life"</p>
+          <p class="footer-mantra">Enhancing beauty, fostering health and finding inner balance</p>
+        </div>
+        <div class="footer-addresses">
+          <div class="address-block">
+            <h4>Srinagar</h4>
+            <p>Wani Complex, Munawarabad, Srinagar – 190001<br>(Opp. JK Bank)</p>
+            <p><a href="tel:+919717052687">+91 97170 52687</a></p>
+            <p>Mon–Sat: 10:00 AM – 7:00 PM<br>Sunday: Closed</p>
+          </div>
+          <div class="address-block">
+            <h4>Delhi</h4>
+            <p>B5/31, Safdarjung Enclave (Humayunpur)<br>South Delhi – 110029</p>
+            <p><a href="tel:+919717082687">+91 97170 82687</a> | <a href="tel:01146109223">011-46109223</a></p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="team.html">Our Team</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact & Booking</a>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="https://instagram.com/lebaron_srinagar" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/919717052687" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p class="footer-email"><a href="mailto:info@lebaronaesthetic.com">info@lebaronaesthetic.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LeBaron Aesthetics & Dental Lounge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <a href="https://wa.me/919717052687" class="whatsapp-fab" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+
+  <script>
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  if(hamburger && mobileOverlay) {
+    hamburger.addEventListener('click', () => mobileOverlay.classList.add('active'));
+    closeMenu.addEventListener('click', () => mobileOverlay.classList.remove('active'));
+    mobileOverlay.addEventListener('click', (e) => { if(e.target === mobileOverlay) mobileOverlay.classList.remove('active'); });
+  }
+
+  // Intersection Observer for reveals
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+
+  </script>
+</body>
+</html>
